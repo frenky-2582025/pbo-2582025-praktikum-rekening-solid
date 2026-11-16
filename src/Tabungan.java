@@ -12,6 +12,11 @@ public class Tabungan extends Rekening implements BerBunga {
     }
 
     @Override
+    public int getBiayaAdmin() {
+        return nomor == 102 ? 5000 : 0;
+    }
+
+    @Override
     public boolean tarik(int jumlah) {
         if (jumlah > 0 && saldo >= jumlah) {
             saldo -= jumlah;

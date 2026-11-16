@@ -7,6 +7,11 @@ public class Giro extends Rekening {
     }
 
     @Override
+    public int getBiayaAdmin() {
+        return 15000;
+    }
+
+    @Override
     public boolean tarik(int jumlah) {
         if (jumlah > 0 && (saldo + batasOverdraft) >= jumlah) {
             saldo -= jumlah;

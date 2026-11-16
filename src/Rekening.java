@@ -13,6 +13,8 @@ public abstract class Rekening {
     public String getPemilik() { return pemilik; }
     public int getSaldo() { return saldo; }
 
+    public int getBiayaAdmin() { return 0; }
+
     public void setor(int jumlah) {
         if (jumlah > 0) {
             saldo += jumlah;

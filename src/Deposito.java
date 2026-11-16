@@ -1,4 +1,5 @@
-public class Deposito extends Rekening implements BerBunga {
+
+// Catatan: Commit kedua untuk OCP Depositopublic class Deposito extends Rekening implements BerBunga {
     private double bungaPersen;
 
     public Deposito(int nomor, String pemilik, int saldo, double bungaPersen) {

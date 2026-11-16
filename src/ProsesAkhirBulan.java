@@ -2,13 +2,7 @@ public class ProsesAkhirBulan {
 
     public void potongBiayaAdmin(Rekening[] semua) {
         for (Rekening r : semua) {
-            int biaya = 0;
-            if (r instanceof Tabungan) {
-                if (r.getNomor() == 102) biaya = 5000; // contoh aturan biaya admin
-            } else if (r instanceof Giro) {
-                if (r.getNomor() == 201) biaya = 15000;
-            }
-            // Deposito bebas biaya admin (0)
+            int biaya = r.getBiayaAdmin();
 
             r.tarik(biaya);
             System.out.println(r.getNomor() + " biaya admin : " + Rekening.formatRupiah(biaya));
@@ -18,7 +12,8 @@ public class ProsesAkhirBulan {
     public void tambahBunga(BerBunga[] berbunga) {
         for (BerBunga b : berbunga) {
             Rekening r = (Rekening) b;
-            int bunga = (int) (r.getSaldo() * (b.getBungaPersen() / 100.0));
+            int saldoSebelumBiayaAdmin = r.getSaldo() + r.getBiayaAdmin();
+            int bunga = (int) (saldoSebelumBiayaAdmin * (b.getBungaPersen() / 100.0));
             r.setor(bunga);
             System.out.println(r.getNomor() + " bunga       : " + Rekening.formatRupiah(bunga));
         }
