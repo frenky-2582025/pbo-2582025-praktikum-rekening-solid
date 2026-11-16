@@ -1,3 +1,4 @@
+// Catatan: Commit ketiga finalisasi
 public class BankSolid {
     public static void main(String[] args) {
         // Data rekening awal
